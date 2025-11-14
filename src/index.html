@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/styles.nav.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="/pages/adicionar.html" class="nav-item">
+          <i data-lucide="plus-circle"></i>
+          <span>Adicionar</span>
+        </a>
+
+        <a href="index.html" class="nav-item active">
+          <i data-lucide="target"></i>
+          <span>Missões</span>
+        </a>
+
+        <a href="/pages/ranking.html" class="nav-item">
+          <i data-lucide="trophy"></i>
+          <span>Ranking</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Missões</h1>
+    </div>
+
+    <div class="container">
+      <div class="filtros">
+        <i data-lucide="search"></i>
+        <input id="pesquisa" type="text" placeholder="Buscar missão..." />
+        <select id="select-dificuldades">
+          <option value="">Todas as dificuldades</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Média">Média</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+        <select id="select-status">
+          <option value="">Todos os status</option>
+          <option value="pendente">Pendente</option>
+          <option value="concluida">Concluída</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome da Missão</th>
+            <th>Dificuldade</th>
+            <th>Tempo Estimado</th>
+            <th>Pontos</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-missoes">
+          <!-- <tr>
+            <td id="nome-missao">Resgatar o aldeão</td>
+            <td class="dificuldade-fácil">Fácil</td>
+            <td>10 min</td>
+            <td>50</td>
+            <td><i data-lucide="clock"></i></td>
+          </tr>
+          <tr>
+            <td>Derrotar o dragão</td>
+            <td class="dificuldade-dificil">Difícil</td>
+            <td>45 min</td>
+            <td>300</td>
+            <td><i data-lucide="check-circle"></i></td>
+          </tr>
+          <tr>
+            <td>Explorar a caverna</td>
+            <td class="dificuldade-media">Média</td>
+            <td>25 min</td>
+            <td>120</td>
+            <td><i data-lucide="clock"></i></td>
+          </tr>
+          <tr>
+            <td>Coletar ervas mágicas</td>
+            <td class="dificuldade-facil">Fácil</td>
+            <td>10 min</td>
+            <td>50</td>
+            <td><i data-lucide="check-circle"></i></td>
+          </tr>
+          <tr>
+            <td>Escoltar o mercador</td>
+            <td class="dificuldade-media">Média</td>
+            <td>30 min</td>
+            <td>150</td>
+            <td><i data-lucide="clock"></i></td>
+          </tr>
+          <tr>
+            <td>Explorar as ruínas antigas</td>
+            <td class="dificuldade-dificil">Difícil</td>
+            <td>45 min</td>
+            <td>200</td>
+            <td><i data-lucide="clock"></i></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="/scripts/index.js"></script>
+  </body>
+</html>
