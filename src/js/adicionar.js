@@ -1,3 +1,3 @@
-import { missoes } from "./index";
+import { missoes } from "./missions.mjs";
 
 console.log(missoes);
