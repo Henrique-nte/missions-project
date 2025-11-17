@@ -15,7 +15,6 @@ html {
 }
 
 body {
-  background-color: var(--primary);
   color: var(--text);
 }
 
@@ -48,7 +47,8 @@ body {
 }
 
 .nav-item.active {
-  color: #2563eb; /* azul destaque */
+  color: #2563eb;
+  /* azul destaque */
   font-weight: bold;
 }
 

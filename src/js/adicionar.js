@@ -1,3 +1,2 @@
-import { missoes } from "./missions.mjs";
+import { missoes } from "./missions.js";
 
-console.log(missoes);
