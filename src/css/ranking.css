@@ -1,0 +1,110 @@
+/* Container geral */
+.ranking {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 0.8s ease;
+}
+
+.ranking h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Player card */
+.player {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px 20px;
+  margin: 12px 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transform: translateX(-20px);
+  opacity: 0;
+  animation: slideIn 0.6s ease forwards;
+}
+
+.ranking .player:nth-of-type(1) {
+  animation-delay: 0.15s;
+}
+.ranking .player:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+.ranking .player:nth-of-type(3) {
+  animation-delay: 0.35s;
+}
+
+/* Top 1 dourado com brilho pulsante */
+.top1 {
+  background: linear-gradient(135deg, #ffd70033, #ffffff05);
+  border: 1px solid #ffd700aa;
+  box-shadow: 0 0 15px #ffd70055;
+  animation: crownGlow 1.6s ease-in-out infinite;
+}
+
+.pos {
+  font-weight: bold;
+  color: #ffd700;
+  font-size: 20px;
+  width: 40px;
+}
+
+.name {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  font-size: 17px;
+}
+
+.score {
+  font-weight: bold;
+  color: #6cf;
+  font-size: 16px;
+}
+
+/* ANIMAÇÕES */
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes crownGlow {
+  0% {
+    box-shadow: 0 0 10px #ffd70055;
+  }
+  50% {
+    box-shadow: 0 0 22px #ffd700aa;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffd70055;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fundo recomendado (caso queira algo mais gamer) */
+body {
+  background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
+  color: #fff;
+}

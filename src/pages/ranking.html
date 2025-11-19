@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranking</title>
-    <link rel="stylesheet" href="/src/css/styles.nav.css">
+    <link rel="stylesheet" href="/src/css/styles.nav.css" />
+    <link rel="stylesheet" href="/src/css/ranking.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar">
-            <a href="/src/pages/adicionar.html" class="nav-item">
-                <i data-lucide="plus-circle"></i>
-                <span>Adicionar</span>
-            </a>
+      <nav class="navbar">
+        <a href="/src/pages/adicionar.html" class="nav-item">
+          <i data-lucide="plus-circle"></i>
+          <span>Adicionar</span>
+        </a>
 
-            <a href="../index.html" class="nav-item">
-                <i data-lucide="target"></i>
-                <span>Missões</span>
-            </a>
+        <a href="../index.html" class="nav-item">
+          <i data-lucide="target"></i>
+          <span>Missões</span>
+        </a>
 
-            <a href="/src/pages/ranking.html" class="nav-item active">
-                <i data-lucide="trophy"></i>
-                <span>Ranking</span>
-            </a>
-        </nav>
+        <a href="/src/pages/ranking.html" class="nav-item active">
+          <i data-lucide="trophy"></i>
+          <span>Ranking</span>
+        </a>
+      </nav>
     </header>
 
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
+    <div class="ranking">
+      <h1>Ranking Geral</h1>
 
+      <div class="player top1">
+        <span class="pos">1º</span>
+        <span class="name">Jogador Supremo</span>
+        <span class="score">980 pts</span>
+      </div>
+
+      <div class="player">
+        <span class="pos">2º</span>
+        <span class="name">Guerreiro Azul</span>
+        <span class="score">860 pts</span>
+      </div>
+
+      <div class="player">
+        <span class="pos">3º</span>
+        <span class="name">Ninja Verde</span>
+        <span class="score">780 pts</span>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
