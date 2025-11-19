@@ -1,63 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adicionar</title>
-    <link rel="stylesheet" href="/src/css/styles.nav.css">
-    <link rel="stylesheet" href="/src/css/adicionar.css">
+    <link rel="stylesheet" href="/src/css/styles.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar">
-            <a href="/src/pages/adicionar.html" class="nav-item active">
-                <i data-lucide="plus-circle"></i>
-                <span>Adicionar</span>
-            </a>
+      <nav class="navbar">
+        <a href="/src/pages/adicionar.html" class="nav-item active">
+          <i data-lucide="plus-circle"></i>
+          <span>Adicionar</span>
+        </a>
 
-            <a href="../index.html" class="nav-item">
-                <i data-lucide="target"></i>
-                <span>Missões</span>
-            </a>
+        <a href="../index.html" class="nav-item">
+          <i data-lucide="target"></i>
+          <span>Missões</span>
+        </a>
 
-            <a href="/src/pages/ranking.html" class="nav-item">
-                <i data-lucide="trophy"></i>
-                <span>Ranking</span>
-            </a>
-        </nav>
+        <a href="/src/pages/ranking.html" class="nav-item">
+          <i data-lucide="trophy"></i>
+          <span>Ranking</span>
+        </a>
+      </nav>
     </header>
 
-
-    <form class="form-missao">
+    <div class="container flex">
+      <form class="form-missao">
         <h1>Adicionar Missão</h1>
 
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Nome da missão">
+        <input type="text" id="nome" name="nome" placeholder="Nome da missão" />
 
         <label for="dificuldade">Dificuldade:</label>
         <select id="dificuldade" name="dificuldade">
-            <option value="facil">Fácil</option>
-            <option value="medio">Médio</option>
-            <option value="dificil">Difícil</option>
+          <option value="facil">Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
         </select>
 
         <label for="tempo">Tempo:</label>
-        <input type="text" id="tempo" name="tempo" placeholder="Tempo estimado">
+        <input
+          type="text"
+          id="tempo"
+          name="tempo"
+          placeholder="Tempo estimado"
+        />
 
         <label for="pontos">Pontos:</label>
-        <input type="number" id="pontos" name="pontos" placeholder="Valor em pontos">
+        <input
+          type="number"
+          id="pontos"
+          name="pontos"
+          placeholder="Valor em pontos"
+        />
 
         <button type="submit">Adicionar</button>
-    </form>
+      </form>
+      <form class="form-missao">
+        <h1>Adicionar Missão</h1>
 
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome da missão" />
+
+        <label for="dificuldade">Dificuldade:</label>
+        <select id="dificuldade" name="dificuldade">
+          <option value="facil">Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
+        </select>
+
+        <label for="tempo">Tempo:</label>
+        <input
+          type="text"
+          id="tempo"
+          name="tempo"
+          placeholder="Tempo estimado"
+        />
+
+        <label for="pontos">Pontos:</label>
+        <input
+          type="number"
+          id="pontos"
+          name="pontos"
+          placeholder="Valor em pontos"
+        />
+
+        <button type="submit">Adicionar</button>
+      </form>
+    </div>
 
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
     </script>
     <script type="module" src="/src/js/adicionar.js"></script>
-</body>
-
+  </body>
 </html>
