@@ -6,7 +6,7 @@ function salvarJogadores() {
 
 function addPlayer(nome, nivel) {
   if (jogadores.some((j) => j.nome === nome)) {
-    console.log("Jogador já existe!");
+    showError("Jogador já existe!!");
     return;
   }
 
@@ -23,9 +23,8 @@ function addPlayer(nome, nivel) {
   };
 
   jogadores.push(novoPlayer);
-  console.log(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
 
-  console.log(jogadores);
+  showSucces(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
   salvarJogadores();
 }
 
@@ -58,7 +57,6 @@ btnAddPlayer.addEventListener("click", () => {
   const valorLevelPlayer = selectLevelPlayer.value;
 
   addPlayer(valorNamePlayer, valorLevelPlayer);
-  showSucces("Jogador adicionado com sucesso!");
 });
 
 //Adicionar Missões
