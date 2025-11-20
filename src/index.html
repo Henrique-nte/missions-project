@@ -32,6 +32,10 @@
       <h1>Missões</h1>
     </div>
 
+    <div class="modal-overlay" id="errorModal">
+      <div class="modal-error">Campos vazios!</div>
+    </div>
+
     <div class="container">
       <div class="filtros">
         <i data-lucide="search"></i>
@@ -66,7 +70,7 @@
             <th>Tempo Estimado</th>
             <th>Pontos</th>
             <th>Status</th>
-            <th>Acões</th>
+            <th id="acoes">Acões</th>
           </tr>
         </thead>
         <tbody id="tabela-missoes">

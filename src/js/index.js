@@ -6,7 +6,24 @@ const tabelaMissoes = document.querySelector("#tabela-missoes");
 const selectStatus = document.querySelector("#select-status");
 const selectPlayer = document.querySelector("#select-player");
 
-// console.log(selectPlayer);
+function salvarJogadores() {
+  localStorage.setItem("jogadores", JSON.stringify(jogadores));
+}
+
+const modal = document.getElementById("errorModal");
+
+function showError(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
+
+function showSucces(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.querySelector(".modal-error").style.color = "white";
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
 
 if (jogadores.length === 0) {
   document.body.innerHTML += `
@@ -22,6 +39,33 @@ selectPlayer.innerHTML += jogadores
   .join("");
 
 function carregarMissoes(jogadores) {
+  const table = document.querySelector("table");
+  let thead = table.querySelector("thead");
+  if (!thead) {
+    thead = document.createElement("thead");
+    table.prepend(thead);
+  }
+
+  // Remove o <th> "Ações" se existir
+  const existingTh = document.getElementById("acoes");
+  existingTh && existingTh.remove();
+
+  // Cria linha do cabeçalho se não existir
+  let headerRow = thead.querySelector("tr");
+  if (!headerRow) {
+    headerRow = document.createElement("tr");
+    thead.appendChild(headerRow);
+  }
+
+  // Adiciona <th> "Ações" apenas se houver jogador selecionado
+  if (selectPlayer.value !== "" && !document.getElementById("acoes")) {
+    const th = document.createElement("th");
+    th.id = "acoes";
+    th.textContent = "Ações";
+    headerRow.appendChild(th);
+  }
+
+  // Monta as linhas da tabela
   tabelaMissoes.innerHTML = jogadores
     .flatMap((j) =>
       j.missoes.map((m) => {
@@ -29,20 +73,6 @@ function carregarMissoes(jogadores) {
           m.status.toLowerCase() === "pendente"
             ? `<button class="btn-concluir">Concluir</button>`
             : `<button class="btn-deletar">Deletar</button>`;
-
-        if (selectPlayer.value === "") {
-          return `
-          <tr>
-            <td class="nome-missao">${m.nome}</td>
-            <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
-            m.dificuldade
-          }</td>
-            <td>${m.tempo}</td>
-            <td>${m.pontos}</td>
-            <td>${m.status}</td>
-          </tr>
-        `;
-        }
 
         return `
           <tr>
@@ -53,7 +83,7 @@ function carregarMissoes(jogadores) {
             <td>${m.tempo}</td>
             <td>${m.pontos}</td>
             <td>${m.status}</td>
-            <td>${botao}</td>
+            ${selectPlayer.value !== "" ? `<td>${botao}</td>` : ""}
           </tr>
         `;
       })
@@ -144,6 +174,48 @@ selectPlayer.addEventListener("change", () => {
   selectDificuldades.value = "";
   selectStatus.value = "";
   filtrarMissoes();
+
+  fixMissiom();
 });
+
+function fixMissiom() {
+  //Concluir missão
+  const btnCheck = document.querySelector(".btn-concluir");
+  if (!btnCheck) return;
+
+  btnCheck.addEventListener("click", () => {
+    const nomePlayer = prepareString(selectPlayer.value);
+    const tr = btnCheck.closest("tr");
+    const nomeMission = tr.querySelector("td").textContent;
+
+    const nome = prepareString(nomeMission);
+
+    const indexPlayer = jogadores.findIndex(
+      (j) => prepareString(j.nome) === nomePlayer
+    );
+
+    const indexMission = jogadores.findIndex((j) =>
+      j.missoes.filter((m) => prepareString(m.nome) === nome)
+    );
+
+    jogadores[indexPlayer].missoes[indexMission].status = "Concluída";
+    showSucces("Missão Marcada como concluída!");
+    salvarJogadores();
+  });
+}
+
+function prepareString(str) {
+  const normalizar = (str) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "");
+
+  let nome = normalizar(str);
+  nome = nome.trim();
+  nome = nome.replace(/\s+/g, "");
+
+  return nome;
+}
 
 document.addEventListener("DOMContentLoaded", () => carregarMissoes(jogadores));

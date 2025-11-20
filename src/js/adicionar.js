@@ -29,6 +29,8 @@ function addPlayer(nome, nivel) {
   salvarJogadores();
 }
 
+const modal = document.getElementById("errorModal");
+
 function showError(msg) {
   modal.querySelector(".modal-error").textContent = msg;
   modal.classList.add("active");
@@ -65,7 +67,6 @@ const selectDificult = document.getElementById("selectDificult");
 const inputNameMission = document.getElementById("nomeMission");
 const timeMinutes = document.getElementById("timeMinutes");
 const pointsInput = document.getElementById("pointsInput");
-const modal = document.getElementById("errorModal");
 
 btnAddMission.addEventListener("click", () => {
   const nomePlayer = playerSelect.value;
@@ -101,7 +102,8 @@ btnAddMission.addEventListener("click", () => {
   const indexJogador = jogadores.findIndex((j) => j.nome === nomePlayer);
 
   jogadores[indexJogador].missoes.push(novaMissao);
-  console.log(
+
+  showSucces(
     `Missão: ${novaMissao.nome} adicionada ao jogador ${jogadores[indexJogador].nome}!`
   );
   salvarJogadores();
