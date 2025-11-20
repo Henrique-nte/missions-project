@@ -56,20 +56,34 @@ const selectDificult = document.getElementById("selectDificult");
 const inputNameMission = document.getElementById("nomeMission");
 const timeMinutes = document.getElementById("timeMinutes");
 const pointsInput = document.getElementById("pointsInput");
+const modal = document.getElementById("errorModal");
+
+function showError(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
+
+function showSucces(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.querySelector(".modal-error").style.color = "green";
+
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
 
 btnAddMission.addEventListener("click", () => {
   const nomePlayer = playerSelect.value;
-
-  if (nomePlayer === "") {
-    //Adicionar para todos
-    return;
-  }
-
   const nome = inputNameMission.value;
   const dificuldade = selectDificult.value;
   const tempo = timeMinutes.value;
   const pontos = parseInt(pointsInput.value);
   const status = "pendente";
+
+  if (!nome || !dificuldade || !tempo || !pontos) {
+    showError("Campos vazios!");
+    return;
+  }
 
   const novaMissao = {
     nome,
@@ -78,6 +92,16 @@ btnAddMission.addEventListener("click", () => {
     pontos,
     status,
   };
+
+  if (nomePlayer === "") {
+    jogadores.forEach((j) => {
+      j.missoes.push(novaMissao);
+    });
+
+    console.log("Missões adicionadas aos jogadores!");
+    salvarJogadores();
+    return;
+  }
 
   const indexJogador = jogadores.findIndex((j) => j.nome === nomePlayer);
 

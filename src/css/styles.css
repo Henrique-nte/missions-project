@@ -365,6 +365,54 @@ tbody td {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* Fundo escuro semi-transparente */
+.modal-overlay {
+  display: none; /* inicialmente escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal centralizado */
+.modal-error {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff3737;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
+}
+
+/* Hover do modal (leve efeito) */
+.modal-error:hover {
+  transform: translateY(-22px);
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ff1919;
+}
+
+/* Quando ativo, exibe com animação */
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-overlay.active .modal-error {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .player {
   background: rgba(255, 255, 255, 0.05);
   padding: 18px 20px;

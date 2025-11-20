@@ -13,7 +13,6 @@ if (jogadores.length === 0) {
   <div class="flex-span">
   <span class="no-player">No missions yet</span>
   <div/>
-
   `;
 }
 

@@ -29,7 +29,7 @@
     </header>
 
     <div class="container flex">
-      <form class="form-missao">
+      <form class="form-missao" id="form-add-mission">
         <!-- Adicionar Missões -->
         <h1>Adicionar Missão</h1>
         <label>Nome:</label>
@@ -58,8 +58,13 @@
 
         <button type="button" id="addMission">Adicionar</button>
       </form>
+
+      <div class="modal-overlay" id="errorModal">
+        <div class="modal-error">Campos vazios!</div>
+      </div>
+
       <!-- Adicionar Jogadores -->
-      <form class="form-missao">
+      <form class="form-missao" id="form-add-player">
         <h1>Adicionar Jogadores</h1>
 
         <label>Nome:</label>
