@@ -46,18 +46,15 @@ function carregarMissoes(jogadores) {
     table.prepend(thead);
   }
 
-  // Remove o <th> "Ações" se existir
   const existingTh = document.getElementById("acoes");
   existingTh && existingTh.remove();
 
-  // Cria linha do cabeçalho se não existir
   let headerRow = thead.querySelector("tr");
   if (!headerRow) {
     headerRow = document.createElement("tr");
     thead.appendChild(headerRow);
   }
 
-  // Adiciona <th> "Ações" apenas se houver jogador selecionado
   if (selectPlayer.value !== "" && !document.getElementById("acoes")) {
     const th = document.createElement("th");
     th.id = "acoes";
@@ -65,28 +62,37 @@ function carregarMissoes(jogadores) {
     headerRow.appendChild(th);
   }
 
-  // Monta as linhas da tabela
+  // Filtra missões duplicadas
+  const seen = new Set();
+
   tabelaMissoes.innerHTML = jogadores
     .flatMap((j) =>
-      j.missoes.map((m) => {
-        const botao =
-          m.status.toLowerCase() === "pendente"
-            ? `<button class="btn-concluir">Concluir</button>`
-            : `<button class="btn-deletar">Deletar</button>`;
+      j.missoes
+        .filter((m) => {
+          const key = `${m.nome}|${m.dificuldade}|${m.tempo}|${m.pontos}|${m.status}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .map((m) => {
+          const botao =
+            m.status.toLowerCase() === "pendente"
+              ? `<button class="btn-concluir">Concluir</button>`
+              : `<button class="btn-deletar">Deletar</button>`;
 
-        return `
-          <tr>
-            <td class="nome-missao">${m.nome}</td>
-            <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
-          m.dificuldade
-        }</td>
-            <td>${m.tempo}</td>
-            <td class="pontos">${m.pontos}</td>
-            <td>${m.status}</td>
-            ${selectPlayer.value !== "" ? `<td>${botao}</td>` : ""}
-          </tr>
-        `;
-      })
+          return `
+            <tr>
+              <td class="nome-missao">${m.nome}</td>
+              <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
+            m.dificuldade
+          }</td>
+              <td>${m.tempo}</td>
+              <td class="pontos">${m.pontos}</td>
+              <td>${m.status}</td>
+              ${selectPlayer.value !== "" ? `<td>${botao}</td>` : ""}
+            </tr>
+          `;
+        })
     )
     .join("");
 }
