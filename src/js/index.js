@@ -8,6 +8,11 @@ const selectPlayer = document.querySelector("#select-player");
 
 // console.log(selectPlayer);
 
+//Listo os jogadores
+selectPlayer.innerHTML += jogadores
+  .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
+  .join("");
+
 function carregarMissoes(jogadores) {
   tabelaMissoes.innerHTML = jogadores
     .flatMap((j) =>

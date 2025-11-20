@@ -22,7 +22,7 @@ export const jogadores = [
   },
   {
     nome: "Juninho",
-    pontos: 150,
+    pontos: 200,
     nivel: "Pleno",
     missoes: [
       {
@@ -43,7 +43,7 @@ export const jogadores = [
   },
   {
     nome: "Lucao",
-    pontos: 300,
+    pontos: 350,
     nivel: "Senior",
     missoes: [
       {
