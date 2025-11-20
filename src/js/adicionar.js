@@ -4,16 +4,6 @@ function salvarJogadores() {
   localStorage.setItem("jogadores", JSON.stringify(jogadores));
 }
 
-const playerSelect = document.getElementById("playerSelect");
-playerSelect.innerHTML += jogadores
-  .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
-  .join("");
-
-//Adicionar Jogadores
-const inputNamePlayer = document.getElementById("namePlayer");
-const selectLevelPlayer = document.getElementById("Nivel");
-const btnAddPlayer = document.getElementById("addPlayer");
-
 function addPlayer(nome, nivel) {
   if (jogadores.some((j) => j.nome === nome)) {
     console.log("Jogador já existe!");
@@ -39,15 +29,34 @@ function addPlayer(nome, nivel) {
   salvarJogadores();
 }
 
+function showError(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
+
+function showSucces(msg) {
+  modal.querySelector(".modal-error").textContent = msg;
+  modal.querySelector(".modal-error").style.color = "white";
+  modal.classList.add("active");
+  setTimeout(() => modal.classList.remove("active"), 1000);
+}
+
+//Adicionar Jogadores
+const inputNamePlayer = document.getElementById("namePlayer");
+const selectLevelPlayer = document.getElementById("Nivel");
+const btnAddPlayer = document.getElementById("addPlayer");
+
 btnAddPlayer.addEventListener("click", () => {
   if (inputNamePlayer.value === "") {
-    return console.log("Nome vazio!");
+    return showError("Nome vazio!");
   }
 
   const valorNamePlayer = inputNamePlayer.value;
   const valorLevelPlayer = selectLevelPlayer.value;
 
   addPlayer(valorNamePlayer, valorLevelPlayer);
+  showSucces("Jogador adicionado com sucesso!");
 });
 
 //Adicionar Missões
@@ -57,20 +66,6 @@ const inputNameMission = document.getElementById("nomeMission");
 const timeMinutes = document.getElementById("timeMinutes");
 const pointsInput = document.getElementById("pointsInput");
 const modal = document.getElementById("errorModal");
-
-function showError(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
-}
-
-function showSucces(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.querySelector(".modal-error").style.color = "green";
-
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
-}
 
 btnAddMission.addEventListener("click", () => {
   const nomePlayer = playerSelect.value;
@@ -98,8 +93,8 @@ btnAddMission.addEventListener("click", () => {
       j.missoes.push(novaMissao);
     });
 
-    console.log("Missões adicionadas aos jogadores!");
     salvarJogadores();
+    showSucces("Missões adicionadas aos jogadores!");
     return;
   }
 
@@ -112,3 +107,8 @@ btnAddMission.addEventListener("click", () => {
   salvarJogadores();
   console.log(jogadores);
 });
+
+const playerSelect = document.getElementById("playerSelect");
+playerSelect.innerHTML += jogadores
+  .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
+  .join("");
