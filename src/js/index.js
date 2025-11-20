@@ -22,6 +22,20 @@ function carregarMissoes(jogadores) {
             ? `<button class="btn-concluir">Concluir</button>`
             : `<button class="btn-deletar">Deletar</button>`;
 
+        if (selectPlayer.value === "") {
+          return `
+          <tr>
+            <td class="nome-missao">${m.nome}</td>
+            <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
+            m.dificuldade
+          }</td>
+            <td>${m.tempo}</td>
+            <td>${m.pontos}</td>
+            <td>${m.status}</td>
+          </tr>
+        `;
+        }
+
         return `
           <tr>
             <td class="nome-missao">${m.nome}</td>

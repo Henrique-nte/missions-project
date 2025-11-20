@@ -1,7 +1,6 @@
 import { jogadores } from "./data.js";
 
 const playerSelect = document.getElementById("playerSelect");
-
 playerSelect.innerHTML += jogadores
   .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
   .join("");
@@ -31,6 +30,7 @@ function addPlayer(nome, nivel) {
 
   jogadores.push(novoPlayer);
   console.log(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
+  console.log(jogadores);
 }
 
 btnAddPlayer.addEventListener("click", () => {
@@ -44,8 +44,8 @@ btnAddPlayer.addEventListener("click", () => {
   addPlayer(valorNamePlayer, valorLevelPlayer);
 });
 
-//Adicionar Missões
 
+//Adicionar Missões
 const btnAddMission = document.getElementById("addMission");
 const selectDificult = document.getElementById("selectDificult");
 const inputNameMission = document.getElementById("nomeMission");
@@ -53,15 +53,32 @@ const timeMinutes = document.getElementById("timeMinutes");
 const pointsInput = document.getElementById("pointsInput");
 
 btnAddMission.addEventListener("click", () => {
-  const nome = inputNameMission.value;
+  const nomePlayer = playerSelect.value;
 
-  if (nome === "") {
-    console.log("Error");
+  if (nomePlayer === "") {
+    //Adicionar para todos
     return;
   }
 
-  const nomePlayer = playerSelect.value;
+  const nome = inputNameMission.value;
   const dificuldade = selectDificult.value;
   const tempo = timeMinutes.value;
-  const pontos = pointsInput.value;
+  const pontos = parseInt(pointsInput.value);
+  const status = "pendente";
+
+  const novaMissao = {
+    nome,
+    dificuldade,
+    tempo,
+    pontos,
+    status,
+  };
+
+  const indexJogador = jogadores.findIndex((j) => j.nome === nomePlayer);
+
+  jogadores[indexJogador].missoes.push(novaMissao);
+  console.log(
+    `Missão: ${novaMissao.nome} adicionada ao jogador ${jogadores[indexJogador].nome}!`
+  );
+  console.log(jogadores);
 });
