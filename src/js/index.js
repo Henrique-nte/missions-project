@@ -20,7 +20,9 @@ function carregarMissoes(jogadores) {
         return `
           <tr>
             <td class="nome-missao">${m.nome}</td>
-            <td class="dificuldade-${m.dificuldade}">${m.dificuldade}</td>
+            <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
+          m.dificuldade
+        }</td>
             <td>${m.tempo}</td>
             <td>${m.pontos}</td>
             <td>${m.status}</td>
@@ -113,6 +115,7 @@ selectStatus.addEventListener("change", () => {
 selectPlayer.addEventListener("change", () => {
   inputPesquisa.value = "";
   selectDificuldades.value = "";
+  selectStatus.value = "";
   filtrarMissoes();
 });
 

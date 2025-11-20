@@ -306,12 +306,14 @@ tbody td {
   font-weight: bold;
 }
 
-.dificuldade-media {
+.dificuldade-media,
+.dificuldade-média {
   color: #ffe36a;
   font-weight: bold;
 }
 
-.dificuldade-dificil {
+.dificuldade-dificil,
+.dificuldade-difícil {
   color: #ff5c5c;
   font-weight: bold;
 }
