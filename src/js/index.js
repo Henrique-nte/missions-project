@@ -81,7 +81,7 @@ function carregarMissoes(jogadores) {
           m.dificuldade
         }</td>
             <td>${m.tempo}</td>
-            <td>${m.pontos}</td>
+            <td class="pontos">${m.pontos}</td>
             <td>${m.status}</td>
             ${selectPlayer.value !== "" ? `<td>${botao}</td>` : ""}
           </tr>
@@ -188,6 +188,8 @@ function fixMissiom() {
     const tr = btnCheck.closest("tr");
     const nomeMission = tr.querySelector("td").textContent;
 
+    const pontos = parseInt(tr.querySelector(".pontos").textContent);
+
     const nome = prepareString(nomeMission);
 
     const indexPlayer = jogadores.findIndex(
@@ -199,7 +201,10 @@ function fixMissiom() {
     );
 
     jogadores[indexPlayer].missoes[indexMission].status = "Concluída";
+    jogadores[indexPlayer].pontos += pontos;
+
     showSucces("Missão Marcada como concluída!");
+    console.log(jogadores);
     salvarJogadores();
   });
 }
