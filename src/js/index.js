@@ -8,6 +8,15 @@ const selectPlayer = document.querySelector("#select-player");
 
 // console.log(selectPlayer);
 
+if (jogadores.length === 0) {
+  document.body.innerHTML += `
+  <div class="flex">
+  <span class="no-player">No missions yet</span>
+  <div/>
+
+  `;
+}
+
 //Listo os jogadores
 selectPlayer.innerHTML += jogadores
   .map((j) => `<option value="${j.nome}">${j.nome}</option>`)

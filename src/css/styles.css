@@ -333,8 +333,35 @@ tbody td {
   font-size: 28px;
   margin-bottom: 25px;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.no-player {
+  display: flex;
+  justify-content: center;
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.1); /* um pouco mais suave */
+  padding: 0.8rem 1rem; /* mais confortável */
+  border-radius: 0.75rem; /* bordas mais arredondadas */
+  font-weight: 600; /* destaca sem ser agressivo */
+  font-size: 20px; /* um pouco menor para suavizar */
+  margin-bottom: 1.5rem;
+  color: #ff4c4c; /* vermelho mais suave, menos agressivo */
+  text-align: center; /* centraliza a mensagem */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* leve sombra para destaque */
+  backdrop-filter: blur(4px); /* efeito glassy sutil */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.no-player:hover {
+  transform: translateY(-2px); /* leve movimento ao passar o mouse */
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .player {

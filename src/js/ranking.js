@@ -2,6 +2,12 @@ import { jogadores } from "./data.js";
 
 const divRanking = document.querySelector(".ranking");
 
+if (jogadores.length === 0) {
+  divRanking.innerHTML += `
+     <span class="no-player">No players yet</span>
+  `;
+}
+
 divRanking.innerHTML += jogadores
   .sort((a, b) => b.pontos - a.pontos)
   .map((j, i) => {
