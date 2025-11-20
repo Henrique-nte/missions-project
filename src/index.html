@@ -36,12 +36,21 @@
       <div class="filtros">
         <i data-lucide="search"></i>
         <input id="pesquisa" type="text" placeholder="Buscar missão..." />
+
+        <select id="select-player">
+          <label for="">Jogadores</label>
+          <option value="player1">Jogador 1</option>
+          <option value="player2">Jogador 2</option>
+          <option value="player3">Jogador 3</option>
+        </select>
+
         <select id="select-dificuldades">
           <option value="">Todas as dificuldades</option>
           <option value="Fácil">Fácil</option>
           <option value="Média">Média</option>
           <option value="Difícil">Difícil</option>
         </select>
+
         <select id="select-status">
           <option value="">Todos os status</option>
           <option value="pendente">Pendente</option>
@@ -57,6 +66,7 @@
             <th>Tempo Estimado</th>
             <th>Pontos</th>
             <th>Status</th>
+            <th>Acões</th>
           </tr>
         </thead>
         <tbody id="tabela-missoes">
@@ -65,6 +75,7 @@
             <td class="dificuldade-fácil">Fácil</td>
             <td>10 min</td>
             <td>50</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="clock"></i></td>
           </tr>
           <tr>
@@ -72,6 +83,7 @@
             <td class="dificuldade-dificil">Difícil</td>
             <td>45 min</td>
             <td>300</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="check-circle"></i></td>
           </tr>
           <tr>
@@ -79,6 +91,7 @@
             <td class="dificuldade-media">Média</td>
             <td>25 min</td>
             <td>120</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="clock"></i></td>
           </tr>
           <tr>
@@ -86,6 +99,7 @@
             <td class="dificuldade-facil">Fácil</td>
             <td>10 min</td>
             <td>50</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="check-circle"></i></td>
           </tr>
           <tr>
@@ -93,6 +107,7 @@
             <td class="dificuldade-media">Média</td>
             <td>30 min</td>
             <td>150</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="clock"></i></td>
           </tr>
           <tr>
@@ -100,6 +115,7 @@
             <td class="dificuldade-dificil">Difícil</td>
             <td>45 min</td>
             <td>200</td>
+            <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="clock"></i></td>
           </tr> -->
         </tbody>

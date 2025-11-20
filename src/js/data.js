@@ -1,0 +1,152 @@
+export const missoes = [
+  {
+    nome: "Resgatar o aldeão",
+    dificuldade: "Fácil",
+    tempo: "10 min",
+    pontos: "50",
+    status: "Concluída",
+  },
+  {
+    nome: "Caçar lobos na floresta",
+    dificuldade: "Média",
+    tempo: "25 min",
+    pontos: "120",
+    status: "Pendente",
+  },
+  {
+    nome: "Derrotar o dragão da montanha",
+    dificuldade: "Difícil",
+    tempo: "60 min",
+    pontos: "300",
+    status: "Concluída",
+  },
+  {
+    nome: "Explorar as ruínas antigas",
+    dificuldade: "Difícil",
+    tempo: "45 min",
+    pontos: "200",
+    status: "Concluída",
+  },
+  {
+    nome: "Investigar o templo abandonado",
+    dificuldade: "Difícil",
+    tempo: "55 min",
+    pontos: "250",
+    status: "Pendente",
+  },
+  {
+    nome: "Proteger as muralhas da vila",
+    dificuldade: "Média",
+    tempo: "30 min",
+    pontos: "150",
+    status: "Pendente",
+  },
+  {
+    nome: "Ajudar o ferreiro a forjar armas",
+    dificuldade: "Fácil",
+    tempo: "20 min",
+    pontos: "80",
+    status: "Concluída",
+  },
+  {
+    nome: "Mapear a floresta proibida",
+    dificuldade: "Difícil",
+    tempo: "50 min",
+    pontos: "230",
+    status: "Pendente",
+  },
+  {
+    nome: "Acompanhar a caravana mercante",
+    dificuldade: "Média",
+    tempo: "35 min",
+    pontos: "140",
+    status: "Pendente",
+  },
+  {
+    nome: "Coletar cristais na caverna",
+    dificuldade: "Média",
+    tempo: "28 min",
+    pontos: "130",
+    status: "Concluída",
+  },
+  {
+    nome: "Reconstruir a ponte quebrada",
+    dificuldade: "Fácil",
+    tempo: "18 min",
+    pontos: "90",
+    status: "Pendente",
+  },
+  {
+    nome: "Derrotar o chefe dos bandidos",
+    dificuldade: "Difícil",
+    tempo: "65 min",
+    pontos: "320",
+    status: "Pendente",
+  },
+];
+
+export const jogadores = [
+  {
+    nome: "Enzo",
+    pontos: 100,
+    nivel: "Junior",
+    missoes: [
+      {
+        nome: "Resgatar o aldeão",
+        dificuldade: "Fácil",
+        tempo: "10 min",
+        pontos: "50",
+        status: "Concluída",
+      },
+      {
+        nome: "Explorar a caverna antiga",
+        dificuldade: "Média",
+        tempo: "20 min",
+        pontos: "80",
+        status: "Pendente",
+      },
+    ],
+  },
+  {
+    nome: "Juninho",
+    pontos: 150,
+    nivel: "Pleno",
+    missoes: [
+      {
+        nome: "Caçar lobos na floresta",
+        dificuldade: "Média",
+        tempo: "25 min",
+        pontos: "120",
+        status: "Pendente",
+      },
+      {
+        nome: "Escoltar o mercador",
+        dificuldade: "Fácil",
+        tempo: "15 min",
+        pontos: "60",
+        status: "Concluída",
+      },
+    ],
+  },
+  {
+    nome: "Lucao",
+    pontos: 300,
+    nivel: "Senior",
+    missoes: [
+      {
+        nome: "Derrotar o dragão da montanha",
+        dificuldade: "Difícil",
+        tempo: "40 min",
+        pontos: "200",
+        status: "Pendente",
+      },
+      {
+        nome: "Investigar o templo perdido",
+        dificuldade: "Média",
+        tempo: "30 min",
+        pontos: "150",
+        status: "Pendente",
+      },
+    ],
+  },
+];

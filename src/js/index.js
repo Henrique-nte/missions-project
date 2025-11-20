@@ -1,4 +1,4 @@
-import { missoes } from "./missions.js";
+import { missoes } from "./data.js";
 
 const inputPesquisa = document.querySelector("#pesquisa");
 const selectDificuldades = document.querySelector("#select-dificuldades");
@@ -15,13 +15,14 @@ function carregarMissoes(array) {
         <td>${m.tempo}</td>
         <td>${m.pontos}</td>
         <td>${m.status}</td>
+        <td><button class="btn-concluir">Concluir</button></td>
       </tr>
     `
     )
     .join("");
 }
 
-function filtrarArray({ texto = "", dificuldade = "", status }) {
+function filtrarArray({ texto = "", dificuldade = "", status = "" }) {
   const normalizar = (str) =>
     str
       .toLowerCase()

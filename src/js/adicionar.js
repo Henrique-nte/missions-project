@@ -1,2 +1,3 @@
-import { missoes } from "./missions.js";
+import { missoes } from "./data.js";
 
+console.log(missoes);
