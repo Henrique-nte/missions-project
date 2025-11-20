@@ -1,5 +1,9 @@
 import { jogadores } from "./data.js";
 
+function salvarJogadores() {
+  localStorage.setItem("jogadores", JSON.stringify(jogadores));
+}
+
 const playerSelect = document.getElementById("playerSelect");
 playerSelect.innerHTML += jogadores
   .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
@@ -30,7 +34,9 @@ function addPlayer(nome, nivel) {
 
   jogadores.push(novoPlayer);
   console.log(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
+
   console.log(jogadores);
+  salvarJogadores();
 }
 
 btnAddPlayer.addEventListener("click", () => {
@@ -43,7 +49,6 @@ btnAddPlayer.addEventListener("click", () => {
 
   addPlayer(valorNamePlayer, valorLevelPlayer);
 });
-
 
 //Adicionar Missões
 const btnAddMission = document.getElementById("addMission");
@@ -80,5 +85,6 @@ btnAddMission.addEventListener("click", () => {
   console.log(
     `Missão: ${novaMissao.nome} adicionada ao jogador ${jogadores[indexJogador].nome}!`
   );
+  salvarJogadores();
   console.log(jogadores);
 });

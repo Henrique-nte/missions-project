@@ -10,7 +10,7 @@ const selectPlayer = document.querySelector("#select-player");
 
 if (jogadores.length === 0) {
   document.body.innerHTML += `
-  <div class="flex">
+  <div class="flex-span">
   <span class="no-player">No missions yet</span>
   <div/>
 

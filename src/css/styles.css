@@ -337,7 +337,8 @@ tbody td {
   text-transform: uppercase;
 }
 
-.flex {
+.flex-span {
+  animation: fadeIn 0.8s ease;
   display: flex;
   justify-content: center;
 }
