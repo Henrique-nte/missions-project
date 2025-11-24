@@ -35,6 +35,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -45,6 +46,7 @@ body {
     opacity: 0;
     transform: translateY(25px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -62,9 +64,11 @@ body {
   0% {
     box-shadow: 0 0 10px #ffd70055;
   }
+
   50% {
     box-shadow: 0 0 22px #ffd700aa;
   }
+
   100% {
     box-shadow: 0 0 10px #ffd70055;
   }
@@ -76,6 +80,7 @@ body {
 
 .flex {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 50px;
 }
@@ -347,27 +352,38 @@ tbody td {
   display: flex;
   justify-content: center;
   max-width: 450px;
-  background-color: rgba(255, 255, 255, 0.1); /* um pouco mais suave */
-  padding: 0.8rem 1rem; /* mais confortável */
-  border-radius: 0.75rem; /* bordas mais arredondadas */
-  font-weight: 600; /* destaca sem ser agressivo */
-  font-size: 20px; /* um pouco menor para suavizar */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* um pouco mais suave */
+  padding: 0.8rem 1rem;
+  /* mais confortável */
+  border-radius: 0.75rem;
+  /* bordas mais arredondadas */
+  font-weight: 600;
+  /* destaca sem ser agressivo */
+  font-size: 20px;
+  /* um pouco menor para suavizar */
   margin-bottom: 1.5rem;
-  color: #ff4c4c; /* vermelho mais suave, menos agressivo */
-  text-align: center; /* centraliza a mensagem */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* leve sombra para destaque */
-  backdrop-filter: blur(4px); /* efeito glassy sutil */
+  color: #ff4c4c;
+  /* vermelho mais suave, menos agressivo */
+  text-align: center;
+  /* centraliza a mensagem */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* leve sombra para destaque */
+  backdrop-filter: blur(4px);
+  /* efeito glassy sutil */
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .no-player:hover {
-  transform: translateY(-2px); /* leve movimento ao passar o mouse */
+  transform: translateY(-2px);
+  /* leve movimento ao passar o mouse */
   background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Fundo escuro semi-transparente */
 .modal-overlay {
-  display: none; /* inicialmente escondido */
+  display: none;
+  /* inicialmente escondido */
   position: fixed;
   top: 0;
   left: 0;
@@ -431,9 +447,11 @@ tbody td {
 .ranking .player:nth-of-type(1) {
   animation-delay: 0.15s;
 }
+
 .ranking .player:nth-of-type(2) {
   animation-delay: 0.25s;
 }
+
 .ranking .player:nth-of-type(3) {
   animation-delay: 0.35s;
 }
