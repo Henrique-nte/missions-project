@@ -38,6 +38,7 @@ selectPlayer.innerHTML += jogadores
   .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
   .join("");
 
+//Listo as missões na tela
 function carregarMissoes(jogadores) {
   const table = document.querySelector("table");
   let thead = table.querySelector("thead");
@@ -83,9 +84,8 @@ function carregarMissoes(jogadores) {
           return `
             <tr>
               <td class="nome-missao">${m.nome}</td>
-              <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
-            m.dificuldade
-          }</td>
+              <td class="dificuldade-${m.dificuldade.toLowerCase()}">${m.dificuldade
+            }</td>
               <td>${m.tempo}</td>
               <td class="pontos">${m.pontos}</td>
               <td>${m.status}</td>
