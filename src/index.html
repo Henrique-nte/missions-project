@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="/src/css/styles.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
 
-  <body>
-    <header>
-      <nav class="navbar">
-        <a href="/src/adicionar.html" class="nav-item">
-          <i data-lucide="plus-circle"></i>
-          <span>Adicionar</span>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="/src/css/styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
 
-        <a href="index.html" class="nav-item active">
-          <i data-lucide="target"></i>
-          <span>Missões</span>
-        </a>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="/src/adicionar.html" class="nav-item">
+        <i data-lucide="plus-circle"></i>
+        <span>Adicionar</span>
+      </a>
 
-        <a href="/src/ranking.html" class="nav-item">
-          <i data-lucide="trophy"></i>
-          <span>Ranking</span>
-        </a>
-      </nav>
-    </header>
+      <a href="index.html" class="nav-item active">
+        <i data-lucide="target"></i>
+        <span>Missões</span>
+      </a>
 
-    <div class="container">
-      <h1>Missões</h1>
-    </div>
+      <a href="/src/ranking.html" class="nav-item">
+        <i data-lucide="trophy"></i>
+        <span>Ranking</span>
+      </a>
+    </nav>
+  </header>
 
-    <div class="modal-overlay" id="errorModal">
-      <div class="modal-error">Campos vazios!</div>
-    </div>
+  <div class="container">
+    <h1>Missões</h1>
+  </div>
 
-    <div class="container">
-      <div class="filtros">
-        <i data-lucide="search"></i>
-        <input id="pesquisa" type="text" placeholder="Buscar missão..." />
+  <div class="modal-overlay" id="errorModal">
+    <div class="modal-error">Campos vazios!</div>
+  </div>
 
-        <select id="select-player">
-          <option value="">Todos os Jogadores</option>
-          <!-- <option value="Enzo">Enzo</option>
+  <div class="container">
+    <div class="filtros">
+      <i data-lucide="search"></i>
+      <input id="pesquisa" type="text" placeholder="Buscar missão..." />
+
+      <select id="select-player">
+        <option value="">Todos os Jogadores</option>
+        <!-- <option value="Enzo">Enzo</option>
           <option value="Juninho">Juninho</option>
           <option value="Lucao">Lucão</option> -->
-        </select>
+      </select>
 
-        <select id="select-dificuldades">
-          <option value="">Todas as dificuldades</option>
-          <option value="Fácil">Fácil</option>
-          <option value="Média">Média</option>
-          <option value="Difícil">Difícil</option>
-        </select>
+      <select id="select-dificuldades">
+        <option value="">Todas as dificuldades</option>
+        <option value="Fácil">Fácil</option>
+        <option value="Média">Média</option>
+        <option value="Difícil">Difícil</option>
+      </select>
 
-        <select id="select-status">
-          <option value="">Todos os status</option>
-          <option value="pendente">Pendente</option>
-          <option value="concluida">Concluída</option>
-        </select>
-      </div>
+      <select id="select-status">
+        <option value="">Todos os status</option>
+        <option value="pendente">Pendente</option>
+        <option value="concluida">Concluída</option>
+      </select>
+    </div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nome da Missão</th>
-            <th>Dificuldade</th>
-            <th>Tempo Estimado</th>
-            <th>Pontos</th>
-            <th>Status</th>
-            <th id="acoes">Acões</th>
-          </tr>
-        </thead>
-        <tbody id="tabela-missoes">
-          <!-- <tr>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome da Missão</th>
+          <th>Dificuldade</th>
+          <th>Tempo Estimado</th>
+          <th>Pontos</th>
+          <th>Status</th>
+          <th id="acoes">Acões</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-missoes">
+        <!-- <tr>
             <td id="nome-missao">Resgatar o aldeão</td>
             <td class="dificuldade-fácil">Fácil</td>
             <td>10 min</td>
@@ -122,13 +123,14 @@
             <td><button class="btn-concluir">Concluir</button></td>
             <td><i data-lucide="clock"></i></td>
           </tr> -->
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
+  </div>
 
-    <script>
-      lucide.createIcons();
-    </script>
-    <script type="module" src="./js/index.js"></script>
-  </body>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
 </html>

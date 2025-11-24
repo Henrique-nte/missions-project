@@ -212,6 +212,7 @@ function fixMissiom() {
     showSucces("Missão Marcada como concluída!");
     console.log(jogadores);
     salvarJogadores();
+
   });
 }
 
