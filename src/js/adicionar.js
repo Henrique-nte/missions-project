@@ -87,10 +87,7 @@ btnAddMission.addEventListener("click", () => {
       return j.missoes.some((m) => m.nome.includes(nome));
     }) !== -1;
 
-  if (missionAlreadyExists) {
-    showError("Missão já existe!");
-    return;
-  }
+  if (missionAlreadyExists) return showError("Missão já existe!");
 
   if (!nome || !dificuldade || !tempo || !pontos) {
     showError("Campos vazios!");
@@ -115,7 +112,13 @@ btnAddMission.addEventListener("click", () => {
     return;
   }
 
-  const indexJogador = jogadores.findIndex((j) => j.nome === nomePlayer);
+  const indexJogador = jogadores.findIndex(
+    (j) => j.nome.toLowerCase().trim() === nomePlayer
+  );
+
+  if (indexJogador) {
+    console.log("Tem: ", indexJogador);
+  }
 
   jogadores[indexJogador].missoes.push(novaMissao);
 

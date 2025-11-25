@@ -84,7 +84,7 @@ function carregarMissoes(jogadores) {
               <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
             m.dificuldade
           }</td>
-              <td>${m.tempo}</td>
+              <td>${m.tempo + " min"}</td>
               <td class="pontos">${m.pontos}</td>
               <td>${m.status}</td>
               ${selectPlayer.value !== "" ? `<td>${botao}</td>` : ""}
