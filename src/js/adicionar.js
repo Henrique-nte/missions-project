@@ -1,8 +1,5 @@
+import { salvarJogadores } from "./functions.js";
 import { jogadores } from "./data.js";
-
-function salvarJogadores() {
-  localStorage.setItem("jogadores", JSON.stringify(jogadores));
-}
 
 function addPlayer(nome, nivel) {
   if (jogadores.some((j) => j.nome === nome)) {

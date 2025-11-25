@@ -1,14 +1,11 @@
 import { jogadores } from "./data.js";
+import { salvarJogadores } from "./functions.js";
 
 const inputPesquisa = document.querySelector("#pesquisa");
 const selectDificuldades = document.querySelector("#select-dificuldades");
 const tabelaMissoes = document.querySelector("#tabela-missoes");
 const selectStatus = document.querySelector("#select-status");
 const selectPlayer = document.querySelector("#select-player");
-
-function salvarJogadores() {
-  localStorage.setItem("jogadores", JSON.stringify(jogadores));
-}
 
 const modal = document.getElementById("errorModal");
 

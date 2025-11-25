@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar</title>
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adicionar</title>
-  <link rel="stylesheet" href="/src/css/styles.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="/src/adicionar.html" class="nav-item active">
+          <i data-lucide="plus-circle"></i>
+          <span>Adicionar</span>
+        </a>
 
-<body>
-  <header>
-    <nav class="navbar">
-      <a href="/src/adicionar.html" class="nav-item active">
-        <i data-lucide="plus-circle"></i>
-        <span>Adicionar</span>
-      </a>
+        <a href="./index.html" class="nav-item">
+          <i data-lucide="target"></i>
+          <span>Missões</span>
+        </a>
 
-      <a href="./index.html" class="nav-item">
-        <i data-lucide="target"></i>
-        <span>Missões</span>
-      </a>
+        <a href="/src/ranking.html" class="nav-item">
+          <i data-lucide="trophy"></i>
+          <span>Ranking</span>
+        </a>
+      </nav>
+    </header>
 
-      <a href="/src/ranking.html" class="nav-item">
-        <i data-lucide="trophy"></i>
-        <span>Ranking</span>
-      </a>
-    </nav>
-  </header>
+    <div class="container flex">
+      <form class="form-missao" id="form-add-mission">
+        <!-- Adicionar Missões -->
+        <h1>Adicionar Missão</h1>
+        <label>Nome:</label>
+        <input type="text" id="nomeMission" placeholder="Nome da missão" />
 
-  <div class="container flex">
-    <form class="form-missao" id="form-add-mission">
-      <!-- Adicionar Missões -->
-      <h1>Adicionar Missão</h1>
-      <label>Nome:</label>
-      <input type="text" id="nomeMission" placeholder="Nome da missão" />
-
-      <label>Jogador:</label>
-      <select id="playerSelect">
-        <option value="">Todos os Jogadores</option>
-        <!-- <option value="Enzo">Enzo</option>
+        <label>Jogador:</label>
+        <select id="playerSelect">
+          <option value="">Todos os Jogadores</option>
+          <!-- <option value="Enzo">Enzo</option>
           <option value="Juninho">Juninho</option>
           <option value="Lucao">Lucao</option> -->
-      </select>
+        </select>
 
-      <label>Dificuldade:</label>
-      <select id="selectDificult">
-        <option value="Fácil">Fácil</option>
-        <option value="Média">Média</option>
-        <option value="Difícil">Difícil</option>
-      </select>
+        <label>Dificuldade:</label>
+        <select id="selectDificult">
+          <option value="Fácil">Fácil</option>
+          <option value="Média">Média</option>
+          <option value="Difícil">Difícil</option>
+        </select>
 
-      <label for="tempo">Tempo:</label>
-      <input type="text" id="timeMinutes" placeholder="Tempo estimado" />
+        <label for="tempo">Tempo:</label>
+        <input type="text" id="timeMinutes" placeholder="Tempo estimado" />
 
-      <label>Pontos:</label>
-      <input type="number" id="pointsInput" placeholder="Valor em pontos" />
+        <label>Pontos:</label>
+        <input type="number" id="pointsInput" placeholder="Valor em pontos" />
 
-      <button type="button" id="addMission">Adicionar</button>
-    </form>
+        <button type="button" id="addMission">Adicionar</button>
+      </form>
 
-    <div class="modal-overlay" id="errorModal">
-      <div class="modal-error">Campos vazios!</div>
+      <div class="modal-overlay" id="errorModal">
+        <div class="modal-error">Campos vazios!</div>
+      </div>
+
+      <!-- Adicionar Jogadores -->
+      <form class="form-missao" id="form-add-player">
+        <h1>Adicionar Jogadores</h1>
+
+        <label>Nome:</label>
+        <input type="text" id="namePlayer" placeholder="Nome do Jogador" />
+
+        <label>Nível:</label>
+        <select id="Nivel">
+          <option value="junior">Junior</option>
+          <option value="pleno">Pleno</option>
+          <option value="senior">Senior</option>
+        </select>
+
+        <button type="button" id="addPlayer">Adicionar</button>
+      </form>
     </div>
 
-    <!-- Adicionar Jogadores -->
-    <form class="form-missao" id="form-add-player">
-      <h1>Adicionar Jogadores</h1>
-
-      <label>Nome:</label>
-      <input type="text" id="namePlayer" placeholder="Nome do Jogador" />
-
-      <label>Nível:</label>
-      <select id="Nivel">
-        <option value="junior">Junior</option>
-        <option value="pleno">Pleno</option>
-        <option value="senior">Senior</option>
-      </select>
-
-      <button type="button" id="addPlayer">Adicionar</button>
-    </form>
-  </div>
-
-  <script>
-    lucide.createIcons();
-  </script>
-  <script type="module" src="/src/js/adicionar.js"></script>
-</body>
-
+    <script>
+      lucide.createIcons();
+    </script>
+    <script type="module" src="./js/adicionar.js"></script>
+  </body>
 </html>
