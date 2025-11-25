@@ -80,7 +80,7 @@ function carregarMissoes(jogadores) {
 
           return `
             <tr>
-              <td class="nome-missao">${m.nome}</td>
+              <td data-missao class="nome-missao">${m.nome}</td>
               <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
             m.dificuldade
           }</td>
@@ -179,37 +179,94 @@ selectPlayer.addEventListener("change", () => {
   selectStatus.value = "";
   filtrarMissoes();
 
-  fixMissiom();
+  fixMission();
+  deleteMission();
 });
 
-function fixMissiom() {
-  //Concluir missão
+function fixMission() {
   const btnCheck = document.querySelector(".btn-concluir");
   if (!btnCheck) return;
 
   btnCheck.addEventListener("click", () => {
     const nomePlayer = prepareString(selectPlayer.value);
     const tr = btnCheck.closest("tr");
-    const nomeMission = tr.querySelector("td").textContent;
+
+    const nomeMission = prepareString(tr.querySelector("td").textContent);
 
     const pontos = parseInt(tr.querySelector(".pontos").textContent);
 
-    const nome = prepareString(nomeMission);
-
+    // Índice do jogador certo
     const indexPlayer = jogadores.findIndex(
       (j) => prepareString(j.nome) === nomePlayer
     );
 
-    const indexMission = jogadores.findIndex((j) =>
-      j.missoes.filter((m) => prepareString(m.nome) === nome)
+    if (indexPlayer === -1) return;
+
+    // Agora sim: buscar a missão no jogador correto
+    const indexMission = jogadores[indexPlayer].missoes.findIndex(
+      (m) => prepareString(m.nome) === nomeMission
     );
+
+    if (indexMission === -1) return;
 
     jogadores[indexPlayer].missoes[indexMission].status = "Concluída";
     jogadores[indexPlayer].pontos += pontos;
 
-    showSucces("Missão Marcada como concluída!");
-    console.log(jogadores);
+    showSucces("Missão marcada como concluída!");
+
     salvarJogadores();
+
+    setTimeout(() => {
+      window.location.href = "./ranking.html";
+    }, 1000);
+  });
+}
+
+function deleteMission() {
+  const table = document.querySelector("table"); // ou tbody
+
+  if (!table) return;
+
+  table.addEventListener("click", (event) => {
+    const btn = event.target.closest(".btn-deletar");
+    if (!btn) return;
+
+    const tr = btn.closest("tr");
+    if (!tr) return;
+
+    const nomePlayer = prepareString(selectPlayer.value);
+
+    // Pega a missão corretamente
+    const cellMission = tr.querySelector("[data-missao]");
+    if (!cellMission) return;
+
+    const nomeMission = prepareString(cellMission.textContent);
+
+    // Acha o jogador certo
+    const indexPlayer = jogadores.findIndex(
+      (j) => prepareString(j.nome) === nomePlayer
+    );
+
+    if (indexPlayer === -1) return;
+
+    // Acha a missão correta no jogador
+    const indexMission = jogadores[indexPlayer].missoes.findIndex(
+      (m) => prepareString(m.nome) === nomeMission
+    );
+
+    if (indexMission === -1) return;
+
+    // Deleta a missão do array
+    jogadores[indexPlayer].missoes.splice(indexMission, 1);
+
+    salvarJogadores();
+
+    showSucces("Missão deletada com sucesso!");
+
+    // Remove a linha da tabela imediatamente — sem reload
+    setTimeout(() => {
+      tr.remove();
+    }, 1000);
   });
 }
 

@@ -24,7 +24,7 @@ function addPlayer(nome, nivel) {
   showSucces(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
 
   setTimeout(() => {
-    window.location.replace("./ranking.html");
+    window.location.href = "./ranking.html";
   }, 1000);
 
   salvarJogadores();
