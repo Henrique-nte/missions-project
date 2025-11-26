@@ -8,9 +8,9 @@ function addPlayer(nome, nivel) {
   }
 
   let pontos =
-    (nivel === "senior" && 350) ||
-    (nivel === "pleno" && 200) ||
-    (nivel === "junior" && 100);
+    (nivel === "senior" && 500) ||
+    (nivel === "pleno" && 250) ||
+    (nivel === "junior" && 50);
 
   const novoPlayer = {
     nome,

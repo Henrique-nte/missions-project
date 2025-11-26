@@ -184,16 +184,23 @@ selectPlayer.addEventListener("change", () => {
 });
 
 function fixMission() {
-  const btnCheck = document.querySelector(".btn-concluir");
-  if (!btnCheck) return;
+  const table = document.querySelector("table");
+  if (!table) return;
 
-  btnCheck.addEventListener("click", () => {
-    const nomePlayer = prepareString(selectPlayer.value);
+  table.addEventListener("click", (event) => {
+    const btnCheck = event.target.closest(".btn-concluir");
+    if (!btnCheck) return;
+
     const tr = btnCheck.closest("tr");
-
-    const nomeMission = prepareString(tr.querySelector("td").textContent);
-
+    if (!tr) return;
+    const nomePlayer = prepareString(selectPlayer.value);
     const pontos = parseInt(tr.querySelector(".pontos").textContent);
+
+    // Pega a missão corretamente
+    const cellMission = tr.querySelector("[data-missao]");
+    if (!cellMission) return;
+
+    const nomeMission = prepareString(cellMission.textContent);
 
     // Índice do jogador certo
     const indexPlayer = jogadores.findIndex(
@@ -209,12 +216,13 @@ function fixMission() {
 
     if (indexMission === -1) return;
 
+    //Altera os dados
     jogadores[indexPlayer].missoes[indexMission].status = "Concluída";
     jogadores[indexPlayer].pontos += pontos;
 
-    showSucces("Missão marcada como concluída!");
-
     salvarJogadores();
+
+    showSucces("Missão marcada como concluída!");
 
     setTimeout(() => {
       window.location.href = "./ranking.html";
