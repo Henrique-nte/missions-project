@@ -222,7 +222,7 @@ function fixMission() {
 
     salvarJogadores();
 
-    showSucces("Missão marcada como concluída!");
+    showSucces(`Missão "${cellMission.textContent}" marcada como concluída!`);
 
     setTimeout(() => {
       window.location.href = "./ranking.html";
@@ -269,7 +269,7 @@ function deleteMission() {
 
     salvarJogadores();
 
-    showSucces("Missão deletada com sucesso!");
+    showSucces(`Missão "${cellMission.textContent}" deletada com sucesso!`);
 
     // Remove a linha da tabela imediatamente — sem reload
     setTimeout(() => {

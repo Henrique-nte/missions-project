@@ -21,7 +21,7 @@ function addPlayer(nome, nivel) {
 
   jogadores.push(novoPlayer);
 
-  showSucces(`Jogador: ${novoPlayer.nome} adicionado com sucesso!`);
+  showSucces(`Jogador "${novoPlayer.nome}" adicionado com sucesso!`);
 
   setTimeout(() => {
     window.location.href = "./ranking.html";
@@ -78,7 +78,7 @@ btnAddMission.addEventListener("click", () => {
 
   const noPlayers = jogadores.length === 0;
 
-  if (noPlayers) return showError("Adicione um jogador primeiro!");
+  if (noPlayers) return showError("Erro: Adicione um jogador primeiro!");
 
   //Missão Ja existe
   //Método some
@@ -87,7 +87,7 @@ btnAddMission.addEventListener("click", () => {
       return j.missoes.some((m) => m.nome.includes(nome));
     }) !== -1;
 
-  if (missionAlreadyExists) return showError("Missão já existe!");
+  if (missionAlreadyExists) return showError("Erro: Missão já existe!");
 
   if (!nome || !dificuldade || !tempo || !pontos) {
     showError("Campos vazios!");
@@ -123,7 +123,7 @@ btnAddMission.addEventListener("click", () => {
   jogadores[indexJogador].missoes.push(novaMissao);
 
   showSucces(
-    `Missão: ${novaMissao.nome} adicionada ao jogador ${jogadores[indexJogador].nome}!`
+    `Missão "${novaMissao.nome}" adicionada ao jogador "${jogadores[indexJogador].nome}"!`
   );
   salvarJogadores();
   // console.log(jogadores);
