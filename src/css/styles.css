@@ -5,6 +5,10 @@
   --primary: hsl(222.2 47.4% 6%);
   --text: #eaeaea;
   --blue: #2563eb;
+
+  --blur-bg: rgba(255, 255, 255, 0.07);
+  --input-bg: #121212;
+  --input-border: #333;
 }
 
 * {
@@ -13,18 +17,16 @@
 }
 
 html {
+  font-size: 65.2%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 65.2%;
 }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
   background: var(--primary);
   color: #fff;
   padding-bottom: 80px;
-
   animation: fadeIn 0.7s ease forwards;
 }
 
@@ -35,7 +37,6 @@ body {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -46,7 +47,6 @@ body {
     opacity: 0;
     transform: translateY(25px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -61,23 +61,18 @@ body {
 }
 
 @keyframes crownGlow {
-  0% {
-    box-shadow: 0 0 10px #ffd70055;
-  }
-
-  50% {
-    box-shadow: 0 0 22px #ffd700aa;
-  }
-
+  0%,
   100% {
     box-shadow: 0 0 10px #ffd70055;
+  }
+  50% {
+    box-shadow: 0 0 22px #ffd700aa;
   }
 }
 
 /* =========================================
-   FORMULÁRIO (adicionar.css)
+   LAYOUT BASE / FORMULÁRIO (adicionar.css)
 ========================================= */
-
 .flex {
   display: flex;
   align-items: center;
@@ -86,14 +81,13 @@ body {
 }
 
 .form-missao {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(8px);
   width: 350px;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
-  transform: translateY(10px);
+  background: var(--blur-bg);
+  backdrop-filter: blur(8px);
   animation: slideUp 0.7s ease forwards;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
 }
 
 .form-missao h1 {
@@ -110,35 +104,41 @@ body {
   opacity: 0.85;
 }
 
+/* Inputs & Selects padrão */
 .form-missao input,
-.form-missao select {
+.form-missao select,
+.filtros input,
+.filtros select {
   width: 100%;
   padding: 12px;
   margin-top: 6px;
   border-radius: 8px;
-  background: #121212;
-  border: 1px solid #333;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
   color: #eee;
-  font-size: 14px;
   outline: none;
+  font-size: 14px;
   transition: 0.25s ease;
 }
 
 .form-missao input:focus,
-.form-missao select:focus {
+.form-missao select:focus,
+.filtros input:focus,
+.filtros select:focus {
   border-color: #4ea8ff;
   box-shadow: 0 0 8px #4ea8ff;
   transform: scale(1.02);
 }
 
+/* Botão padrão */
 .form-missao button {
   width: 100%;
   padding: 14px;
   margin-top: 22px;
-  background: #007bff;
   border: none;
   border-radius: 10px;
-  color: white;
+  background: #007bff;
+  color: #fff;
   font-size: 15px;
   cursor: pointer;
   letter-spacing: 0.5px;
@@ -153,7 +153,7 @@ body {
 }
 
 /* =========================================
-   INDEX / LISTAGEM (index.css)
+   LISTAGEM / INDEX
 ========================================= */
 .container {
   width: 90%;
@@ -174,34 +174,11 @@ h1 {
   display: flex;
   gap: 12px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--blur-bg);
   padding: 16px;
   border-radius: 12px;
   backdrop-filter: blur(8px);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-}
-
-.filtros input,
-.filtros select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background: #121212;
-  color: #eee;
-  font-size: 14px;
-  outline: none;
-  transition: 0.25s ease;
-}
-
-.filtros input:focus,
-.filtros select:focus {
-  border-color: #4ea8ff;
-  box-shadow: 0 0 8px #4ea8ff;
-  transform: scale(1.03);
-}
-
-.filtros input {
-  flex: 1;
 }
 
 /* Tabela */
@@ -223,13 +200,11 @@ thead th {
   padding: 14px;
   font-size: 15px;
   text-align: left;
-  letter-spacing: 0.5px;
 }
 
 tbody tr {
   transition: 0.25s ease;
 }
-
 tbody tr:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: scale(1.01);
@@ -240,91 +215,64 @@ tbody td {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* BTN */
-
-.btn-concluir {
-  width: 6.5rem;
-  height: 2.4rem;
-  border: none;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-.btn-concluir:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
-}
-
-.btn-concluir:active {
-  transform: scale(0.97);
-  opacity: 0.85;
-}
-
-.btn-concluir:disabled {
-  background: #6b7280;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* BTN DELETAR */
-
+/* Botões da tabela */
+.btn-concluir,
 .btn-deletar {
   width: 6.5rem;
   height: 2.4rem;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(135deg, #b91010, #f80303);
-  color: #ffffff;
-  font-size: 1.2rem;
+  color: #fff;
   font-weight: 600;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  transition: 0.15s ease;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
+.btn-concluir {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.btn-deletar {
+  background: linear-gradient(135deg, #b91010, #f80303);
+}
+
+.btn-concluir:hover,
 .btn-deletar:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
 }
 
+.btn-concluir:active,
 .btn-deletar:active {
   transform: scale(0.97);
   opacity: 0.85;
 }
 
+.btn-concluir:disabled,
 .btn-deletar:disabled {
   background: #6b7280;
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-/* Cores das dificuldades */
-.dificuldade-fácil,
+/* Dificuldades (padronizado sem acento) */
 .dificuldade-facil {
   color: #4cff91;
   font-weight: bold;
 }
-
-.dificuldade-media,
-.dificuldade-média {
+.dificuldade-media {
   color: #ffe36a;
   font-weight: bold;
 }
-
-.dificuldade-dificil,
-.dificuldade-difícil {
+.dificuldade-dificil {
   color: #ff5c5c;
   font-weight: bold;
 }
 
 /* =========================================
-   RANKING (ranking.css)
+   RANKING
 ========================================= */
 .ranking {
   max-width: 450px;
@@ -337,91 +285,61 @@ tbody td {
 .ranking h1 {
   font-size: 28px;
   margin-bottom: 25px;
-  color: #fff;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.flex-span {
-  animation: fadeIn 0.8s ease;
-  display: flex;
-  justify-content: center;
-}
-
+/* Sem registros */
 .no-player {
   display: flex;
   justify-content: center;
   max-width: 450px;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* um pouco mais suave */
   padding: 0.8rem 1rem;
-  /* mais confortável */
   border-radius: 0.75rem;
-  /* bordas mais arredondadas */
+  background: rgba(255, 255, 255, 0.1);
   font-weight: 600;
-  /* destaca sem ser agressivo */
   font-size: 20px;
-  /* um pouco menor para suavizar */
-  margin-bottom: 1.5rem;
   color: #ff4c4c;
-  /* vermelho mais suave, menos agressivo */
   text-align: center;
-  /* centraliza a mensagem */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  /* leve sombra para destaque */
   backdrop-filter: blur(4px);
-  /* efeito glassy sutil */
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .no-player:hover {
   transform: translateY(-2px);
-  /* leve movimento ao passar o mouse */
-  background-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Fundo escuro semi-transparente */
+/* Modal */
 .modal-overlay {
   display: none;
-  /* inicialmente escondido */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* Modal centralizado */
+.modal-overlay.active {
+  display: flex;
+}
+
 .modal-error {
-  background-color: rgba(255, 255, 255, 0.15);
   padding: 1rem 2rem;
   border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
   font-weight: 600;
   font-size: 20px;
   color: #ff3737;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(-20px);
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
-}
-
-/* Hover do modal (leve efeito) */
-.modal-error:hover {
-  transform: translateY(-22px);
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #ff1919;
-}
-
-/* Quando ativo, exibe com animação */
-.modal-overlay.active {
-  display: flex;
+  transition: 0.3s ease;
 }
 
 .modal-overlay.active .modal-error {
@@ -429,6 +347,12 @@ tbody td {
   opacity: 1;
 }
 
+.modal-error:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-22px);
+}
+
+/* Ranking card */
 .player {
   background: rgba(255, 255, 255, 0.05);
   padding: 18px 20px;
@@ -437,62 +361,51 @@ tbody td {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transform: translateX(-20px);
-  opacity: 0;
+  backdrop-filter: blur(6px);
   animation: slideIn 0.6s ease forwards;
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
+/* Delay animado nos 3 primeiros */
 .ranking .player:nth-of-type(1) {
   animation-delay: 0.15s;
 }
-
 .ranking .player:nth-of-type(2) {
   animation-delay: 0.25s;
 }
-
 .ranking .player:nth-of-type(3) {
   animation-delay: 0.35s;
 }
 
-/* BADGE DE NÍVEL — versão linda, elegante e futurista */
+/* Níveis */
 .level {
-  margin-left: 1rem;
   padding: 5px 18px;
   font-size: 1rem;
-  border-radius: 5px;
-  text-transform: capitalize;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  border-radius: 5px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.35s ease forwards;
+  letter-spacing: 0.5px;
 }
 
-/* JUNIOR – azul suave, vibe iniciando jornada */
 .level-junior {
   background: linear-gradient(135deg, #3b82f630, #60a5fa15);
   color: #60a5fa;
-  box-shadow: 0 0 8px #3b82f620;
 }
 
-/* PLENO – dourado elegante, nada berrante */
 .level-pleno {
   background: linear-gradient(135deg, #facc1530, #fbbf2415);
   color: #facc15;
-  box-shadow: 0 0 8px #facc1520;
 }
 
-/* SENIOR – vermelho nobre, forte mas chique */
 .level-senior {
   background: linear-gradient(135deg, #ef444430, #f8717115);
   color: #f87171;
-  box-shadow: 0 0 8px #ef444420;
 }
 
 .top1 {
@@ -503,89 +416,73 @@ tbody td {
 }
 
 .pos {
+  width: 40px;
+  font-size: 20px;
   font-weight: bold;
   color: #ffd700;
-  font-size: 20px;
-  width: 40px;
 }
 
 .name {
   flex: 1;
-  text-align: left;
-  color: #fff;
   font-size: 17px;
 }
 
 .score {
+  font-size: 16px;
   font-weight: bold;
   color: #6cf;
-  font-size: 16px;
 }
+
 /* =========================================
-   DESCRIÇÃO DOS NÍVEIS (fim da página)
+   DESCRIÇÃO DOS NÍVEIS
 ========================================= */
 .descricao {
-  margin: 60px auto 40px auto; /* centraliza e empurra para o final */
   width: 30%;
   max-width: 420px;
-
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-
+  margin: 60px auto 40px;
   padding: 12px 16px;
   text-align: center;
-
-  animation: slideUp 0.7s ease;
-
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
   color: #eaeaea;
+  background: var(--blur-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.7s ease;
 }
 
-/* Título */
 .descricao h1 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  color: #fff;
 }
 
-/* Linhas */
 .descricao span {
   display: block;
-  font-size: 1.3rem;
   margin: 4px 0;
+  font-size: 1.3rem;
   opacity: 0.9;
 }
 
-/* Hover com elevação suave */
 .descricao:hover {
   background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
   transition: 0.25s ease;
 }
 
-/* Responsivo */
 @media (max-width: 430px) {
   .descricao {
     width: 95%;
     padding: 14px 18px;
   }
-
-  .descricao h1 {
-    font-size: 1.6rem;
-  }
 }
 
 /* =========================================
-   NAVBAR (styles.nav.css)
+   NAVBAR
 ========================================= */
 .navbar {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -614,20 +511,11 @@ tbody td {
   transition: 0.25s ease;
 }
 
-.nav-item:hover {
-  color: var(--blue);
-}
-
-.nav-item:hover i {
-  stroke: var(--blue);
-}
-
-.nav-item.active {
-  color: var(--blue);
-  font-weight: bold;
-}
-
+.nav-item:hover,
+.nav-item:hover i,
+.nav-item.active,
 .nav-item.active i {
+  color: var(--blue);
   stroke: var(--blue);
 }
 
@@ -636,7 +524,6 @@ tbody td {
     gap: 22px;
     padding: 10px 0;
   }
-
   .nav-item i {
     width: 22px;
     height: 22px;
