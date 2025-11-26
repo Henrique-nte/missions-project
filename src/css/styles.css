@@ -258,15 +258,15 @@ tbody td {
 }
 
 /* Dificuldades (padronizado sem acento) */
-.dificuldade-facil {
+.dificuldade-fácil {
   color: #4cff91;
   font-weight: bold;
 }
-.dificuldade-media {
+.dificuldade-mídia {
   color: #ffe36a;
   font-weight: bold;
 }
-.dificuldade-dificil {
+.dificuldade-difícil {
   color: #ff5c5c;
   font-weight: bold;
 }

@@ -24,7 +24,7 @@ function showSucces(msg) {
 
 if (jogadores.length === 0) {
   document.body.innerHTML += `
-  <div class="flex-span">
+  <div class="flex">
   <span class="no-player">No missions yet</span>
   <div/>
   `;
