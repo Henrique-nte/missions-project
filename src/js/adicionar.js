@@ -1,4 +1,4 @@
-import { salvarJogadores } from "./functions.js";
+import { salvarJogadores, showError, showSucces } from "./functions.js";
 import { jogadores } from "./data.js";
 
 function addPlayer(nome, nivel) {
@@ -30,20 +30,6 @@ function addPlayer(nome, nivel) {
   salvarJogadores();
 }
 
-const modal = document.getElementById("errorModal");
-
-function showError(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
-}
-
-function showSucces(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.querySelector(".modal-error").style.color = "white";
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
-}
 
 //Adicionar Jogadores
 const inputNamePlayer = document.getElementById("namePlayer");
