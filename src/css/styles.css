@@ -37,6 +37,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -47,6 +48,7 @@ body {
     opacity: 0;
     transform: translateY(25px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -61,10 +63,12 @@ body {
 }
 
 @keyframes crownGlow {
+
   0%,
   100% {
     box-shadow: 0 0 10px #ffd70055;
   }
+
   50% {
     box-shadow: 0 0 22px #ffd700aa;
   }
@@ -205,6 +209,7 @@ thead th {
 tbody tr {
   transition: 0.25s ease;
 }
+
 tbody tr:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: scale(1.01);
@@ -262,10 +267,12 @@ tbody td {
   color: #4cff91;
   font-weight: bold;
 }
+
 .dificuldade-mídia {
   color: #ffe36a;
   font-weight: bold;
 }
+
 .dificuldade-difícil {
   color: #ff5c5c;
   font-weight: bold;
@@ -373,9 +380,11 @@ tbody td {
 .ranking .player:nth-of-type(1) {
   animation-delay: 0.15s;
 }
+
 .ranking .player:nth-of-type(2) {
   animation-delay: 0.25s;
 }
+
 .ranking .player:nth-of-type(3) {
   animation-delay: 0.35s;
 }
@@ -525,6 +534,7 @@ tbody td {
     gap: 22px;
     padding: 10px 0;
   }
+
   .nav-item i {
     width: 22px;
     height: 22px;

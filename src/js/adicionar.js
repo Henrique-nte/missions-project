@@ -1,40 +1,17 @@
-import { salvarJogadores, showError, showSucces } from "./functions.js";
+import { salvarJogadores, addPlayer, showError, showSucces } from "./functions.js";
 import { jogadores } from "./data.js";
-
-function addPlayer(nome, nivel) {
-  if (jogadores.some((j) => j.nome === nome)) {
-    showError("Jogador já existe!!");
-    return;
-  }
-
-  let pontos =
-    (nivel === "senior" && 500) ||
-    (nivel === "pleno" && 250) ||
-    (nivel === "junior" && 50);
-
-  const novoPlayer = {
-    nome,
-    nivel,
-    pontos,
-    missoes: [],
-  };
-
-  jogadores.push(novoPlayer);
-
-  showSucces(`Jogador "${novoPlayer.nome}" adicionado com sucesso!`);
-
-  setTimeout(() => {
-    window.location.href = "./ranking.html";
-  }, 1000);
-
-  salvarJogadores();
-}
-
 
 //Adicionar Jogadores
 const inputNamePlayer = document.getElementById("namePlayer");
 const selectLevelPlayer = document.getElementById("Nivel");
 const btnAddPlayer = document.getElementById("addPlayer");
+
+//Adicionar Missões
+const btnAddMission = document.getElementById("addMission");
+const selectDificult = document.getElementById("selectDificult");
+const inputNameMission = document.getElementById("nomeMission");
+const timeMinutes = document.getElementById("timeMinutes");
+const pointsInput = document.getElementById("pointsInput");
 
 btnAddPlayer.addEventListener("click", () => {
   if (inputNamePlayer.value.trim() === "") {
@@ -46,13 +23,6 @@ btnAddPlayer.addEventListener("click", () => {
 
   addPlayer(valorNamePlayer, valorLevelPlayer);
 });
-
-//Adicionar Missões
-const btnAddMission = document.getElementById("addMission");
-const selectDificult = document.getElementById("selectDificult");
-const inputNameMission = document.getElementById("nomeMission");
-const timeMinutes = document.getElementById("timeMinutes");
-const pointsInput = document.getElementById("pointsInput");
 
 btnAddMission.addEventListener("click", () => {
   const nomePlayer = playerSelect.value.toLowerCase().trim();
