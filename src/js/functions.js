@@ -264,11 +264,11 @@ export function prepareString(str) {
       .normalize("NFD")
       .replace(/\p{Diacritic}/gu, "");
 
-  let nome = normalizar(str);
-  nome = nome.trim();
-  nome = nome.replace(/\s+/g, "");
+  let produto = normalizar(str);
+  produto = produto.trim();
+  produto = produto.replace(/\s+/g, "");
 
-  return nome;
+  return produto;
 }
 
 export function salvarJogadores() {

@@ -3,6 +3,7 @@ import {
   addPlayer,
   showError,
   showSucces,
+  prepareString,
 } from "./functions.js";
 import { jogadores } from "./data.js";
 
@@ -41,11 +42,13 @@ btnAddMission.addEventListener("click", () => {
 
   if (noPlayers) return showError("Erro: Adicione um jogador primeiro!");
 
-  //Missão Ja existe
+  //Verifico se Missão Já existe
   const missionAlreadyExists =
     jogadores.findIndex((j) => {
-      return j.missoes.some((m) => m.nome.includes(nome));
-    }) !== -1;
+      return j.missoes.some((m) =>
+        prepareString(m.nome).includes(prepareString(nome))
+      );
+    }) !== -1; //Retorna um boleano
 
   if (missionAlreadyExists) return showError("Erro: Missão já existe!");
 
@@ -75,10 +78,6 @@ btnAddMission.addEventListener("click", () => {
   const indexJogador = jogadores.findIndex(
     (j) => j.nome.toLowerCase().trim() === nomePlayer
   );
-
-  if (indexJogador) {
-    console.log("Tem: ", indexJogador);
-  }
 
   jogadores[indexJogador].missoes.push(novaMissao);
 
