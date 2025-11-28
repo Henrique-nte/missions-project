@@ -1,4 +1,9 @@
-import { salvarJogadores, addPlayer, showError, showSucces } from "./functions.js";
+import {
+  salvarJogadores,
+  addPlayer,
+  showError,
+  showSucces,
+} from "./functions.js";
 import { jogadores } from "./data.js";
 
 //Adicionar Jogadores
@@ -37,7 +42,6 @@ btnAddMission.addEventListener("click", () => {
   if (noPlayers) return showError("Erro: Adicione um jogador primeiro!");
 
   //Missão Ja existe
-  //Método some
   const missionAlreadyExists =
     jogadores.findIndex((j) => {
       return j.missoes.some((m) => m.nome.includes(nome));
@@ -82,7 +86,10 @@ btnAddMission.addEventListener("click", () => {
     `Missão "${novaMissao.nome}" adicionada ao jogador "${jogadores[indexJogador].nome}"!`
   );
   salvarJogadores();
-  // console.log(jogadores);
+
+  setTimeout(() => {
+    window.location.href = "./index.html";
+  }, 1000);
 });
 
 const playerSelect = document.getElementById("playerSelect");

@@ -56,7 +56,6 @@ function filtrarArray({
     .filter((item) => item !== null);
 }
 
-
 //Listo as missões na tela
 export function carregarMissoes(jogadores) {
   const table = document.querySelector("table");
@@ -103,8 +102,9 @@ export function carregarMissoes(jogadores) {
           return `
             <tr>
               <td data-missao class="nome-missao">${m.nome}</td>
-              <td class="dificuldade-${m.dificuldade.toLowerCase()}">${m.dificuldade
-            }</td>
+              <td class="dificuldade-${m.dificuldade.toLowerCase()}">${
+            m.dificuldade
+          }</td>
               <td>${m.tempo + " min"}</td>
               <td class="pontos">${m.pontos}</td>
               <td>${m.status}</td>
@@ -135,14 +135,13 @@ export function addPlayer(nome, nivel) {
   };
 
   jogadores.push(novoPlayer);
+  salvarJogadores();
 
   showSucces(`Jogador "${novoPlayer.nome}" adicionado com sucesso!`);
 
   setTimeout(() => {
     window.location.href = "./ranking.html";
   }, 1000);
-
-  salvarJogadores();
 }
 
 export function deleteMission() {
@@ -256,7 +255,6 @@ export function listarJogadores() {
   selectPlayer.innerHTML += jogadores
     .map((j) => `<option value="${j.nome}">${j.nome}</option>`)
     .join("");
-
 }
 
 export function prepareString(str) {
@@ -315,7 +313,6 @@ export function eventoSelectStatus() {
     selectPlayer.value = "";
     filtrarMissoes();
   });
-
 }
 
 export function eventoSelectPlayer() {
