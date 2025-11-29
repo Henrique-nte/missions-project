@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (jogadores.length === 0) {
     document.body.innerHTML += `
       <div class="flex">
-        <span class="no-player">No missions yet</span>
+        <span class="no-player">Nenhuma missão encontrada</span>
       </div>
     `;
-    return; 
+    return;
   }
 
   listarJogadores();

@@ -4,7 +4,7 @@ const divRanking = document.querySelector(".ranking");
 
 if (jogadores.length === 0) {
   divRanking.innerHTML += `
-     <span class="no-player">No players yet</span>
+     <span class="no-player">Nenhum jogador encontrado</span>
   `;
 }
 

@@ -3,20 +3,20 @@ const dadosLocalStorage = localStorage.getItem("jogadores");
 export const jogadores = dadosLocalStorage
   ? JSON.parse(dadosLocalStorage)
   : [
-      {
-        nome: "Artemis",
-        nivel: "junior",
-        pontos: 50,
-        missoes: [
-          {
-            nome: "Coletar ervas",
-            dificuldade: "Fácil",
-            tempo: 5,
-            pontos: 20,
-            status: "pendente",
-          },
-        ],
-      },
+      // {
+      //   nome: "Artemis",
+      //   nivel: "junior",
+      //   pontos: 50,
+      //   missoes: [
+      //     {
+      //       nome: "Coletar ervas",
+      //       dificuldade: "Fácil",
+      //       tempo: 5,
+      //       pontos: 20,
+      //       status: "pendente",
+      //     },
+      //   ],
+      // },
     ];
 
 // export const jogadores = dadosLocalStorage
