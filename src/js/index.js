@@ -1,19 +1,21 @@
-import { jogadores } from "./data.js";
-import { eventoInputPesquisa, carregarMissoes, listarJogadores, eventoSelectDifuldades, eventoSelectStatus, eventoSelectPlayer } from "./functions.js";
+import { jogadores } from "./data/data.js";
+import { carregarMissoes } from "./missions/carregarMissoes.js";
 
-if (jogadores.length === 0) {
-  document.body.innerHTML += `
-  <div class="flex">
-  <span class="no-player">No missions yet</span>
-  <div/>
-  `;
-}
+import { listarJogadores } from "./players/listarJogadores.js";
+import { initEvents } from "./events/initEvents.js";
 
-listarJogadores();
+document.addEventListener("DOMContentLoaded", () => {
+  // Caso não existam jogadores
+  if (jogadores.length === 0) {
+    document.body.innerHTML += `
+      <div class="flex">
+        <span class="no-player">No missions yet</span>
+      </div>
+    `;
+    return; 
+  }
 
-eventoInputPesquisa();
-eventoSelectDifuldades();
-eventoSelectStatus();
-eventoSelectPlayer();
-
-document.addEventListener("DOMContentLoaded", () => carregarMissoes(jogadores));
+  listarJogadores();
+  initEvents();
+  carregarMissoes(jogadores);
+});

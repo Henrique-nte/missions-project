@@ -1,4 +1,4 @@
-import { jogadores } from "./data.js";
+import { jogadores } from "./data/data.js";
 
 const divRanking = document.querySelector(".ranking");
 
