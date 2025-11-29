@@ -1,2 +1,2 @@
 # missions-project
-## Site de gerenciamentos de missões feito em javascript puro.
+## Projeto de gerenciamentos de missões feito em HTML, CSS e javascript.
