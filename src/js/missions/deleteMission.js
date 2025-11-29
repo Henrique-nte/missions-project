@@ -2,6 +2,7 @@ import { jogadores } from "../data/data.js";
 import { salvarJogadores } from "../storage/salvarJogadores.js";
 import { prepareString } from "../utils/prepareString.js";
 import { showSucces } from "../ui/mensagens.js";
+import { timeOut } from "../timeOut/timeOut.js";
 
 const selectPlayer = document.querySelector("#select-player");
 
@@ -49,6 +50,6 @@ export function deleteMission() {
     // Remove a linha da tabela imediatamente — sem reload
     setTimeout(() => {
       tr.remove();
-    }, 1000);
+    }, timeOut);
   });
 }

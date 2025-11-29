@@ -2,6 +2,7 @@ import { jogadores } from "../data/data.js";
 import { salvarJogadores } from "../storage/salvarJogadores.js";
 import { showError, showSucces } from "../ui/mensagens.js";
 import { prepareString } from "../utils/prepareString.js";
+import { timeOut } from "../timeOut/timeOut.js";
 
 export function initAddMission(
   btnAddMission,
@@ -61,14 +62,14 @@ export function initAddMission(
     );
 
     jogadores[indexJogador].missoes.push(novaMissao);
+    salvarJogadores();
 
     showSucces(
       `Missão "${novaMissao.nome}" adicionada ao jogador "${jogadores[indexJogador].nome}"!`
     );
-    salvarJogadores();
 
     setTimeout(() => {
       window.location.href = "./index.html";
-    }, 1000);
+    }, timeOut);
   });
 }

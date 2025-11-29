@@ -1,1 +1,1 @@
-export const modal = document.getElementById("errorModal");
+export const toast = document.getElementById("errorToast");

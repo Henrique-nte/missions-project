@@ -1,5 +1,6 @@
 import { jogadores } from "../data/data.js";
 import { salvarJogadores } from "../storage/salvarJogadores.js";
+import { timeOut } from "../timeOut/timeOut.js";
 import { showError, showSucces } from "../ui/mensagens.js";
 
 export function addPlayer(nome, nivel) {
@@ -27,5 +28,5 @@ export function addPlayer(nome, nivel) {
 
   setTimeout(() => {
     window.location.href = "./ranking.html";
-  }, 1000);
+  }, timeOut);
 }

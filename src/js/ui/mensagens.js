@@ -1,14 +1,26 @@
-import { modal } from "./modal.js";
+import { timeOut } from "../timeOut/timeOut.js";
+import { toast } from "./modal.js";
 
 export function showError(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
+  const messageEl = toast.querySelector(".toast-message");
+
+  messageEl.textContent = msg;
+  messageEl.style.background = "#ff3737";
+  messageEl.style.color = "#fff";
+
+  toast.classList.add("active");
+
+  setTimeout(() => toast.classList.remove("active"), timeOut);
 }
 
 export function showSucces(msg) {
-  modal.querySelector(".modal-error").textContent = msg;
-  modal.querySelector(".modal-error").style.color = "white";
-  modal.classList.add("active");
-  setTimeout(() => modal.classList.remove("active"), 1000);
+  const messageEl = toast.querySelector(".toast-message");
+
+  messageEl.textContent = msg;
+  messageEl.style.background = "#28c76f";
+  messageEl.style.color = "#fff";
+
+  toast.classList.add("active");
+
+  setTimeout(() => toast.classList.remove("active"), timeOut);
 }

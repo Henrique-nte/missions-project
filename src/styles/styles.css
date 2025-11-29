@@ -313,46 +313,47 @@ tbody td {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.15);
 }
-
-/* Modal */
-.modal-overlay {
-  display: none;
+/* Container que substitui o modal-overlay */
+.toast-container {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-overlay.active {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 2000;
   display: flex;
-}
-
-.modal-error {
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  font-weight: 600;
-  font-size: 20px;
-  color: #ff3737;
-  text-align: center;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transform: translateY(-20px);
+  justify-content: center;
+  pointer-events: none; /* não bloqueia cliques do usuário */
   opacity: 0;
-  transition: 0.3s ease;
+  transition: 0.35s ease;
 }
 
-.modal-overlay.active .modal-error {
-  transform: translateY(0);
+/* Quando ativa */
+.toast-container.active {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
-.modal-error:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-22px);
+/* Mensagem */
+.toast-message {
+  background: #ff3737;
+  color: #fff;
+  padding: 0.9rem 1.6rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  pointer-events: auto;
+  animation: pop 0.3s ease;
+}
+
+/* Animação sutil de entrada */
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Ranking card */
