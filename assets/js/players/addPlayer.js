@@ -27,6 +27,6 @@ export function addPlayer(nome, nivel) {
   showSucces(`Jogador "${novoPlayer.nome}" adicionado com sucesso!`);
 
   setTimeout(() => {
-    window.location.href = `${location.origin}/missions-project/ranking.html`;
+    window.location.href = "/missions-project/ranking.html";
   }, timeOut);
 }
