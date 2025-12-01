@@ -48,8 +48,7 @@ export function deleteMission() {
     showSucces(`Missão "${cellMission.textContent}" deletada com sucesso!`);
 
     // Remove a linha da tabela imediatamente — sem reload
-    setTimeout(() => {
-      tr.remove();
-    }, timeOut);
+
+    tr.remove();
   });
 }
