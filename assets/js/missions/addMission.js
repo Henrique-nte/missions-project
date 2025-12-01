@@ -55,7 +55,7 @@ export function initAddMission(
       salvarJogadores();
       showSucces("Missões adicionadas aos jogadores!");
       setTimeout(() => {
-        window.location.href = `${window.location.origin}/index.html`;
+        window.location.href = "/missions-project/index.html";
       }, timeOut);
       return;
     }
