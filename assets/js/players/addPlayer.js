@@ -27,6 +27,6 @@ export function addPlayer(nome, nivel) {
   showSucces(`Jogador "${novoPlayer.nome}" adicionado com sucesso!`);
 
   setTimeout(() => {
-    window.location.href = `./ranking.html`;
+    window.location.href = `ranking.html`;
   }, timeOut);
 }
