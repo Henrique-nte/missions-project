@@ -48,7 +48,7 @@ export function fixMission() {
     showSucces(`Missão "${cellMission.textContent}" marcada como concluída!`);
 
     setTimeout(() => {
-      window.location.href = `ranking.html`;
+      window.location.href = `${location.origin}/missions-project/ranking.html`;
     }, timeOut);
   });
 }
