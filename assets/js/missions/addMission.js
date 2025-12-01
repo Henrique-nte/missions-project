@@ -72,7 +72,7 @@ export function initAddMission(
     );
 
     setTimeout(() => {
-      window.location.href = "/missions-project/index.html";
+      window.location.href = "../index.html";
     }, timeOut);
   });
 }
